@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contagem de Estoque - Conferência</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Contagem de estoque</h1>
+
+    <!-- Modal de Aviso "Leia Antes de Usar" -->
+    <div id="modalAviso" class="modal">
+      <div class="modal-conteudo">
+        <h3><strong>Leia Antes de Usar</strong></h3>
+        <p>
+          Cuidado ao atualizar a página! Este software foi desenvolvido para auxiliar na contagem de estoque, facilitando o dia a dia e garantindo um controle absoluto do estoque. Existem 3 funções principais:
+        </p>
+        <ul>
+          <li><strong>Calculadora de Quantidade Total:</strong> Este botão abre uma calculadora para calcular o total de itens empilhados em uma área (por exemplo, paletes ou caixas), com base na altura x largura.</li>
+          <li><strong>Adicionar Produto:</strong> Permite adicionar os itens que você já contou no estoque.</li>
+          <li><strong>Remover Produto:</strong> Use esta função caso tenha adicionado um item incorretamente.</li>
+          <li><strong>Gerar Relatório:</strong> Copie a lista formatada para colar no WhatsApp com a contagem final.</li>
+        </ul>
+        <p><strong>Importante:</strong> Evite atualizar a página, pois os dados podem ser perdidos.</p>
+        <button onclick="fecharModalAviso()">Fechar</button>
+      </div>
+    </div>
+
+    <div id="formulario">
+      <label for="produto">Produto:</label>
+      <input type="text" id="produto" placeholder="Nome do produto">
+      
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" id="quantidade" placeholder="Quantidade">
+
+      <button onclick="adicionarProduto()">Adicionar Produto</button>
+    </div>
+
+    <h2>Produtos Registrados</h2>
+    <table id="tabelaProdutos">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+    <button onclick="abrirCalculadora()">Calcular Quantidade Total</button>
+    
+    <!-- Novo botão para copiar a lista formatada -->
+    <button onclick="copiarLista()">Copiar para WhatsApp</button>
+
+    <!-- Modal da Calculadora de Área -->
+    <div id="modalCalculadora" class="modal">
+      <div class="modal-conteudo">
+        <h2>Calculadora de Área</h2>
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" placeholder="Altura">
+        
+        <label for="largura">Largura:</label>
+        <input type="number" id="largura" placeholder="Largura">
+        
+        <button onclick="calcularArea()">Calcular</button>
+        <p id="resultadoArea"></p>
+        <button onclick="fecharCalculadora()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
